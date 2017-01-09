@@ -10,7 +10,7 @@ source:
   git_rev: 565836e255a73d013b3b74331d56f24ebf8b5408
 
 build:
-  number: 1
+  number: 2
   features:
     - vc9  # [win and py27]
     - vc10  # [win and py34]
@@ -23,11 +23,11 @@ requirements:
     - toolchain
     - cmake
     - swig
-    - boost 1.62.*
+    - boost 1.63.*
     - sundials
     - python
   run:
-    - boost 1.62.*
+    - boost 1.63.*
     - sundials
     - python
 
