@@ -1,17 +1,11 @@
 #!/bin/sh
 
-if test `uname` = "Darwin"
-then
-  SHLIB_EXT='.dylib'
-else
-  SHLIB_EXT='.so'
-fi
-
-mkdir -p build && cd build
+mkdir build && cd build
 
 cmake \
   -DCMAKE_PREFIX_PATH=${PREFIX} \
   -DCMAKE_INSTALL_PREFIX=${PREFIX} \
+  -DCMAKE_SKIP_BUILD_RPATH=TRUE \
   -DBUILD_SWIG_JAVA=OFF \
   -DBUILD_TESTS=OFF \
   ..
