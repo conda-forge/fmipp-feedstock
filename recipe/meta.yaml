@@ -10,23 +10,22 @@ source:
   git_rev: 565836e255a73d013b3b74331d56f24ebf8b5408
 
 build:
-  number: 3
-  features:
-    - vc9  # [win and py27]
-    - vc14  # [win and py>=35]
+  number: 1003
   # module fails to import on x86
   skip: true  # [win32]
 
 requirements:
   build:
-    - toolchain
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
     - cmake
+  host:
     - swig
-    - boost 1.65.1
+    - boost
     - sundials 2.7.*
     - python
   run:
-    - boost 1.65.1
+    - boost
     - sundials 2.7.*
     - python
 
