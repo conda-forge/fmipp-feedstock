@@ -1,16 +1,15 @@
-{% set version = "1.2" %}
+{% set version = "2.0" %}
 
 package:
   name: fmipp
   version: {{ version }}
 
 source:
-  # no tarball available, no git tag
-  git_url: git://git.code.sf.net/p/fmipp/code
-  git_rev: 565836e255a73d013b3b74331d56f24ebf8b5408
+  url: https://github.com/fmipp/fmipp/archive/refs/tags/v{{ version }}.tar.gz
+  sha256: 16bd8fbed77fbcab2988eda89f4760c08b3857dd45f78879290c8b0725fcca1b
 
 build:
-  number: 1003
+  number: 0
   # module fails to import on x86
   skip: true  # [win32]
 
@@ -34,10 +33,11 @@ test:
     - fmippim
 
 about:
-  home: http://fmipp.sourceforge.net
-  license: BSD 2-Clause
+  home: https://fmipp.readthedocs.io/en/latest
+  license: BSD-2-Clause
   license_file: FMIPP_LICENSE
   summary: A High-level Utility Package for FMI-based Software Development
+  dev_url: https://github.com/fmipp/fmipp
 
 extra:
   recipe-maintainers:
