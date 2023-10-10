@@ -1,8 +1,9 @@
 #!/bin/sh
+set -ex
 
 mkdir build && cd build
 
-cmake \
+cmake -G Ninja \
   -DCMAKE_PREFIX_PATH=${PREFIX} \
   -DCMAKE_INSTALL_PREFIX=${PREFIX} \
   -DCMAKE_SKIP_BUILD_RPATH=TRUE \
@@ -10,7 +11,7 @@ cmake \
   -DBUILD_TESTS=OFF \
   ..
 
-make -j${CPU_COUNT}
+cmake --build .
 
 # no install rule
 cp -v export/libfmippex${SHLIB_EXT} ${PREFIX}/lib
