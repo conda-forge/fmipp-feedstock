@@ -15,7 +15,11 @@ cmake -G Ninja \
 cmake --build .
 
 # no install rule
+cp -v export/libfmi2${SHLIB_EXT} ${PREFIX}/lib
 cp -v export/libfmippex${SHLIB_EXT} ${PREFIX}/lib
 cp -v import/libfmippim${SHLIB_EXT} ${PREFIX}/lib
-cp -v import/swig/_fmippim.so ${SP_DIR}
+
+cp -v _fmippex.so ${SP_DIR}
+cp -v _fmippim.so ${SP_DIR}
+cp -v export/swig/fmippex.py ${SP_DIR}
 cp -v import/swig/fmippim.py ${SP_DIR}
