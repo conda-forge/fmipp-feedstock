@@ -19,11 +19,10 @@ requirements:
   host:
     - swig
     - boost
-    - sundials 2.7.*
+    - sundials
     - python
   run:
     - boost
-    - sundials 2.7.*
     - python
 
 test:
