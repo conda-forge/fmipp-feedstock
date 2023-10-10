@@ -10,8 +10,6 @@ source:
 
 build:
   number: 0
-  # module fails to import on x86
-  skip: true  # [win32]
 
 requirements:
   build:
