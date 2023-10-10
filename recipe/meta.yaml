@@ -7,6 +7,8 @@ package:
 source:
   url: https://github.com/fmipp/fmipp/archive/refs/tags/v{{ version }}.tar.gz
   sha256: 16bd8fbed77fbcab2988eda89f4760c08b3857dd45f78879290c8b0725fcca1b
+  patches:
+    - patches/0001-add-boost-include-PREFIX-include-as-global-include.patch
 
 build:
   number: 0
