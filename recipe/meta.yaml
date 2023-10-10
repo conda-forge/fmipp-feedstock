@@ -18,11 +18,10 @@ requirements:
     - cmake
   host:
     - swig
-    - boost
+    - libboost-devel
     - sundials
     - python
   run:
-    - boost
     - python
 
 test:
