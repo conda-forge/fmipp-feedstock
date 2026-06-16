@@ -1,0 +1,29 @@
+From c7a4101742a25d91b5c26422c51df298e61678ef Mon Sep 17 00:00:00 2001
+From: "H. Vetinari" <h.vetinari@gmx.com>
+Date: Tue, 10 Oct 2023 19:26:38 +1100
+Subject: [PATCH] add boost include (==$PREFIX/include) as global include
+
+---
+ CMakeLists.txt | 9 ++++++++-
+ 1 file changed, 8 insertions(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index a98f33b..6747845 100755
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -164,7 +164,14 @@ endif ()
+ # Boost dependencies here
+ find_package( Boost 1.56.0 REQUIRED )
+ if ( Boost_FOUND )
+-   include_directories( ${Boost_INCLUDE_DIRS} )
++   # despite being found here, include_directories(...) will not accept
++   # Boost_INCLUDE_DIR for some inane reason (but only on unix...)
++   MESSAGE( STATUS "Unfortunately, CMake will ignore the following include path:" )
++   MESSAGE( STATUS ${Boost_INCLUDE_DIR} )
++   include_directories( ${Boost_INCLUDE_DIR} )
++   # to unbreak compilation, misuse add_definitions(...) to do the job
++   add_definitions( -I${Boost_INCLUDE_DIR} )
++
+    set( BOOST_LIBRARYDIR ${Boost_LIBRARY_DIRS} )
+ 
+    option( BOOST_STATIC_LINKING "Turn on/off static linking for Boost" OFF )
